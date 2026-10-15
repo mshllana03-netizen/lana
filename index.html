@@ -182,10 +182,13 @@ button{font:inherit;border:0;outline:0;-webkit-appearance:none}
 <div class="container">
 <div class="card">
 <div class="card-label">A MESSAGE FOR YOU</div>
+
 <div class="message" id="msg">
 كُلّ عامٍ وأنت إلى الله أقرب، وفي حفظهِ ورعايتهِ أينما كنت.<br>
-بَارَك الله في عمرك وأسعد قلبك، وزادك علمًا وفهمًا لتصير أحلى وأكبر صيدلاني بالبلد وتوصل لِكُلّ شيء تتمناه.<br>
-جعل الله عامك الجديد بداية لكُلّ فرح وتوفيق، وعسى أن يملأ أيامك القادمة بالنور والسكينة والبشائر التي تُبهج روحك وتريح بالك. 🤍
+بارك الله في عمرك وأسعد قلبك، وزادك علمًا وفهمًا في درب الصيدلة، وفتح لك أبواب النجاح والتوفيق، وجعل لك في علمك نفعًا وفي مهنتك أثرًا طيبًا، وحقّق لك كل ما يتمناه قلبك.<br>
+جعل الله عامك الجديد بداية لكل فرح وتوفيق، وعسى أن يملأ أيامك القادمة بالنور والسكينة والبشائر التي تُبهج روحك وتريح بالك، وأن يبارك لك في علمك وينفع بك عباده. 🤍
+</div>
+
 </div>
 <button class="next" id="msgNext">Next</button>
 </div>
@@ -230,9 +233,24 @@ button{font:inherit;border:0;outline:0;-webkit-appearance:none}
 const P={a:document.getElementById("p1"),b:document.getElementById("p2"),c:document.getElementById("p3"),d:document.getElementById("p4"),e:document.getElementById("p5")};
 function go(x){Object.values(P).forEach(e=>e.classList.remove("active"));x.classList.add("active")}
 
+
 const no=document.getElementById("no"),yes=document.getElementById("yes"),q=document.getElementById("q");
-const texts=["Answer honestly 👀","Are you sure?","Try again 😌","You really chose No?","Think about it... 👀","That button is getting suspicious.","Mazen... really? 😂","One more time?","I don't think that's the right answer 🤍","Okay... we both know the answer."];
+
+const texts=[
+"جاوب بصراحة 👀",
+"متأكد؟",
+"جرّب مرة ثانية 😌",
+"عنجد اخترت لا؟",
+"فكّر بالموضوع شوي... 👀",
+"زر الرفض صار يثير الشك 😂",
+"مازن... عنجد؟ 😂",
+"كمان مرة؟",
+"مش شايف إنّه هاد هو الجواب الصح 🤍",
+"طيب... إحنا التنين عارفين الجواب."
+];
+
 let tries=0;
+
 no.onclick=()=>{
  tries++;
  q.style.opacity=0;
@@ -277,7 +295,7 @@ let blown=false;
 document.getElementById("cakeStage").onclick=()=>{
  if(blown)return;blown=true;ac();
  document.querySelectorAll(".flame").forEach((f,i)=>setTimeout(()=>f.classList.add("off"),i*90));
- document.getElementById("hint").textContent="يا سلام 🤍 كل عام وأنت بخير!";
+ document.getElementById("hint").textContent="يا سلام!";
  setTimeout(()=>{clap();fanfare()},400);
  setTimeout(()=>document.getElementById("cakeNext").classList.remove("hidden"),1700);
 };
